@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public GameObject spawnSparkPrefab;
     protected int hp;
     protected int mp;
     private Vector2 coords;
@@ -57,7 +58,10 @@ public abstract class Character : MonoBehaviour
     }
 
     public void spawn(Vector2 worldPos) {
-        //spawn sparks
+        if (spawnSparkPrefab != null) {
+            GameObject spark = Instantiate(spawnSparkPrefab, transform.position, Quaternion.identity);
+            Destroy(spark, 3);
+        }
         transform.position = new Vector3(worldPos.x, 0, worldPos.y);
     }
 }
