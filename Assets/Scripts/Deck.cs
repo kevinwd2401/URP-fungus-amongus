@@ -9,6 +9,7 @@ public class Deck : MonoBehaviour
     public List<Card> discard_pile;
     public List<Card> draw_pile;
     public Card[] hand;
+    public Buttons buttons;
     int handsize = 5;
 
     public Deck() {
@@ -101,7 +102,10 @@ public class Deck : MonoBehaviour
             hand[i] = draw_pile[0];
             draw_pile.RemoveAt(0);
         }
-        
+
+        updateHandDisplay();
+
+
     }
 
     public int getCurrentHandSize() {
@@ -118,12 +122,13 @@ public class Deck : MonoBehaviour
 
     void updateHandDisplay() {
         //TODO
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        fillDeckWithStarter();
     }
 
     // Update is called once per frame
