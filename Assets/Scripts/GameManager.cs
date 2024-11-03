@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // making it singleton
     public Board board;
     public static GameManager Instance { get; private set; }
-    private GameObject player;
+    public GameObject player;
 
     public GUIManager gui;
 
@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Player>().move((int) moveCoord.x, (int) moveCoord.y);
     }
 
-<<<<<<< HEAD
     public int getPlayerMP() {
         return player.GetComponent<Player>().getMp();
     }
@@ -133,7 +132,6 @@ public class GameManager : MonoBehaviour
         return;
     }
 
-=======
     public void enemiesTurn()
     {
         /* Now enemy gets to attack */
@@ -156,5 +154,4 @@ public class GameManager : MonoBehaviour
         }
 
     }
->>>>>>> 74e63f4 (motor skill and attack skill made for enemy phase)
 }

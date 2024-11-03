@@ -41,6 +41,13 @@ public class AttackTileDisplayer : MonoBehaviour
             // instantiate attack point
             Vector2 attack_coord = a.attackOffsets[i];
             Vector3 newPos = worldPos + GameManager.Instance.tileLength * new Vector3(attack_coord.x, 0f, attack_coord.y);
+            
+            if (skill is MotorSkill) {
+                if (GameManager.Instance.board.isTileOccupied((int)newPos[0] + 50, (int)newPos[2] + 50)) {
+                    continue;
+                }
+            }
+            
             GameObject ui = Instantiate(selectedUIPrefab, newPos, Quaternion.identity);
             PotentialAttackTile pat = ui.GetComponentInChildren<PotentialAttackTile>();
             pat.initalize(i, this);

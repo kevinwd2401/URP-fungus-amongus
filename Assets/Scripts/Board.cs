@@ -22,6 +22,10 @@ public class Board : MonoBehaviour
     Dictionary<string, GameObject> name2Prefab = new Dictionary<string, GameObject>();
 
 
+    public bool isTileOccupied(int x, int y) {
+        if (x < 0 || y < 0 || x >= width || y >= widthBin) return false;
+        return (characterCoords[x, y] != null);
+    }
     public void DamageCharacterOnBoard(bool attackIsEnemy, int dmg, int x, int y)
     {
         Character character = characterCoords[x, y];
@@ -42,7 +46,7 @@ public class Board : MonoBehaviour
 
         SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
 
-        string[] enemyType = { "Slimo", "Rock", "Shroomie", "Dragoshroom" };
+        string[] enemyType = { "Slimo", "Mush Mush", "Shroomy Longleg", "Shroomie", "Dragoshroom", "Sluggo" };
         SpawnEnemies(1, 5, enemyType);
     }
 
@@ -183,7 +187,10 @@ public class Board : MonoBehaviour
             int x = (int)Mathf.Clamp(pos.x + ii, 0f, lengthBin);
             int y = (int)Mathf.Clamp(pos.y + jj, 0f, widthBin);
             //Debug.Log(x + " " + y);
-            SpawnEnemy(new Vector2(x, y), enemyTypes[i]);
+
+            if (! isTileOccupied(x, y)) {
+                SpawnEnemy(new Vector2(x, y), enemyTypes[i]);
+            }
         }
     }
         
