@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &581081646 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8697911268646297704, guid: 24011d3455f1d4a97867544bea679cf0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7961114438604782701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,18 +241,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &870377530 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4202492483524493138, guid: 24011d3455f1d4a97867544bea679cf0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7961114438604782701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,47 +573,6 @@ MonoBehaviour:
     type: 3}
   selectedUIPrefab2: {fileID: 6030661852262763951, guid: e064a525daa6e48a1bf12a7d0864f564,
     type: 3}
---- !u!1 &1207705099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6449503619052965945, guid: 24011d3455f1d4a97867544bea679cf0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7961114438604782701}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1207705105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207705099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da0bdb598a2d415992811a1272842d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HpNum: {fileID: 1899765239}
-  mp: {fileID: 581081646}
-  mpmax: {fileID: 870377530}
-  mx3: {fileID: 21300000, guid: 9a01b0642d2304230b446691670b12c8, type: 3}
-  mx4: {fileID: 21300000, guid: 6267189929e214e3a8ea486c27043741, type: 3}
-  mx5: {fileID: 21300000, guid: 726cf04a40786448193544a6452bc37e, type: 3}
-  m1: {fileID: 21300000, guid: 4228cfeb86a5440da8717124d1e78448, type: 3}
-  m2: {fileID: 21300000, guid: 37e0be0be40554cf79132c8930f102f0, type: 3}
-  m3: {fileID: 21300000, guid: 78dc1e8d038244b6ab4f46681dc11610, type: 3}
-  m4: {fileID: 21300000, guid: a56797df4fd1e405aa81dac58d784f97, type: 3}
-  m5: {fileID: 21300000, guid: 072d5f8ed7fea47f2a7c69c40047a4e0, type: 3}
---- !u!114 &1899765239 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8097778200714588172, guid: 24011d3455f1d4a97867544bea679cf0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7961114438604782701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2038291736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8327491240872630403, guid: 8915612660d204a099ea611719e8913e,
@@ -1215,11 +1150,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6449503619052965945, guid: 24011d3455f1d4a97867544bea679cf0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1207705105}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24011d3455f1d4a97867544bea679cf0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
