@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90df7ed8c2c5d47f8af93f177784ae6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: {fileID: 585841160}
   button: {fileID: 0}
   numberOfDuplicates: 5
   interval: 80

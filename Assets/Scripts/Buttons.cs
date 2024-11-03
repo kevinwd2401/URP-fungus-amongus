@@ -42,11 +42,10 @@ public class Buttons : MonoBehaviour
 
     GameObject[] buttonPrefabs;
 
-    List<GameObject> LoadedButtons;
+    List<GameObject> LoadedButtons = new List<GameObject>();
 
     void Start()
     {
-        LoadedButtons = new List<GameObject>();
         //LoadButtonPrefabs();
     }
 
