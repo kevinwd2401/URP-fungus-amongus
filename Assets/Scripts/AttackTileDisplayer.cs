@@ -9,6 +9,8 @@ public class AttackTileDisplayer : MonoBehaviour
     List<GameObject> UIList; // ui list that shows point of attack
     GameObject [,] UI2List; // ui litst that shows area of attack
     const int maxAreaAttack = 9;
+    Skill skill;
+
 
     void Start() {
         UIList = new List<GameObject>();
@@ -25,10 +27,11 @@ public class AttackTileDisplayer : MonoBehaviour
                 Destroy(go);
             }
         }
+        this.skill = null;
     }
     // Start is called before the first frame update
-    public void displayAttackedTiles(Vector3 worldPos, Attack a)
-    /* attackArea: attack blocks i per attack j */
+    public void displayAttackedTiles(Vector3 worldPos, Attack a, Skill skill)
+    /* attackArea (4,1) = (i,j): attack kinds i attack area j */
     {
         clearUI();
         UI2List = new GameObject[a.attackAreas.GetLength(0), a.attackAreas.GetLength(1)]; 
@@ -48,16 +51,30 @@ public class AttackTileDisplayer : MonoBehaviour
             {
                 (Vector2 attack_area_coord, int dmg) = a.attackAreas[i,j];
                 Vector3 newPos2 = worldPos + GameManager.Instance.tileLength * new Vector3(attack_area_coord.x, 0f, attack_area_coord.y);
-                //GameObject ui2 = Instantiate(selectedUIPrefab2, newPos2, Quaternion.identity);
-                //UI2List[i,j] = ui2;
+                GameObject ui2 = Instantiate(selectedUIPrefab2, newPos2, Quaternion.identity);
+                ui2.SetActive(false);
+                UI2List[i, j] = ui2;
             }
         }
+        this.skill = skill;
     }
 
     public void displayAttackArea(int attackCoordId, bool turnOn)
     {
         // turn on attack coord's id
         //attackCoordId
-        Debug.Log(attackCoordId + " " + turnOn);
+        for (int j = 0; j < UI2List.GetLength(1); j++)
+        {
+            //Debug.Log("herehere"+ UI2List.GetLength(0) + " " + UI2List.GetLength(1));
+            //Debug.Log("herehere id" + attackCoordId + " " + j);
+
+            UI2List[attackCoordId, j].SetActive(turnOn);
+        }
+        //Debug.Log(attackCoordId + " " + turnOn);
+    }
+
+    public void initaiteAttack(int id)
+    {
+        this.skill.Attack(id);
     }
 }

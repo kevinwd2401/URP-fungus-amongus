@@ -21,6 +21,13 @@ public class Skill : MonoBehaviour
 
     //remove from hand
     void removeFromHand() {
+
         buttons.deck.discardByIndex(index_in_hand);
+
+    }
+    
+    public virtual void Attack(int id)
+    {
+
     }
 }

@@ -45,19 +45,28 @@ public class Slash : Skill
             new Vector2(-1, 0),
             new Vector2(0, 1),
             new Vector2(0, -1),
+            new Vector2(1, 1),
+            new Vector2(-1, 1),
+            new Vector2(1, -1),
+            new Vector2(-1, -1),
         };
-        (Vector2 coord, int dmg)[,] attackAreas = {
-            { (new Vector2(1, 0), 1) },
-            { (new Vector2(-1, 0), 1) },
-            { (new Vector2(0, 1), 1) },
-            { (new Vector2(0, -1), 1) },
+        (Vector2 coord, int dmg)[,] attackAreas = { // attackAreas.GetLength(0) = 4, attackAreas.GetLength(1) = area
+            { (new Vector2(1, 0), 1) , (new Vector2(1, 1), 1) , (new Vector2(1, -1), 1) },
+            { (new Vector2(-1, 0), 1), (new Vector2(-1, 1), 1), (new Vector2(-1, -1), 1) },
+            { (new Vector2(0, 1), 1) , (new Vector2(1, 1), 1) , (new Vector2(-1, 1), 1) },
+            { (new Vector2(0, -1), 1), (new Vector2(1, -1), 1), (new Vector2(-1, -1), 1) },
+            { (new Vector2(1, 1), 1),  (new Vector2(0, 1), 1),  (new Vector2(1, 0), 1)  },
+            { (new Vector2(-1, 1), 1), (new Vector2(0, 1), 1), (new Vector2(-1, 0), 1) },
+            { (new Vector2(1, -1), 1), (new Vector2(0, -1), 1), (new Vector2(1, 0), 1) },
+            { (new Vector2(-1, -1), 1),(new Vector2(0, -1), 1),(new Vector2(-1, 0), 1)},
         };
+
+        //Debug.Log("herehere"+attackAreas.GetLength(0) + " " + attackAreas.GetLength(1));
         Attack attack = new Attack("Slash", false, offsets, attackAreas);
-        attackDisplay.displayAttackedTiles(playerWorldCoords, attack);
-        Debug.Log("generated potential area");
+        attackDisplay.displayAttackedTiles(playerWorldCoords, attack, this);
     }
 
-    public void Attack(Vector3 playerWorldCoords)
+    public override void Attack(int id) //Vector3 playerWorldCoords)
     {
         //(Vector2 coord, int dmg)[] offsetes = { (new Vector2(1, 0), 1) };
         //Attack attack = new Attack("Slash", false, offsetes);
