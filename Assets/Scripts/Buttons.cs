@@ -10,7 +10,7 @@ public class Buttons : MonoBehaviour
 
     public Button button;
     public int numberOfDuplicates = 5;  // Number of duplicates to create
-    public float interval = 80f;
+    public float interval = 60f;
 
     // Start is called before the first frame update
     //void Start()
@@ -76,7 +76,8 @@ public class Buttons : MonoBehaviour
 
             GameObject newButton = Instantiate(Resources.Load<GameObject>("SkillButtons/" + name), transform);
             
-            newButton.transform.localPosition = new Vector3(i * interval, 0, 0); // Example positioning
+            newButton.transform.localPosition = new Vector3(88.6f + i * interval, 0, 0); // Example positioning
+            newButton.transform.localScale = new Vector3(0.89f,0.89f,0.89f); // Example positioning
             newButton.name = "Button_" + (i + 1); // Naming for identification
 
             Skill s = newButton.GetComponent<Skill>();
