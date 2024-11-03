@@ -7,6 +7,7 @@ public class Enemy : Character
 {
     public GameObject damageSparkPrefab, deathSparkPrefab;
     public int level;
+    private float idleVelocity, idleAccel;
 
     [SerializeField] int HP;
 
@@ -25,12 +26,20 @@ public class Enemy : Character
     void Start()
     {
         hp = HP;
+        idleAccel = (Random.value > 0.5f) ? -0.3f : 0.3f;
+        idleVelocity = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        idleVelocity += idleAccel * Time.deltaTime;
+        if (idleAccel > 0 && idleVelocity > 0.1f) {
+            idleAccel = -0.3f;
+        } else if (idleAccel < 0 && idleVelocity < -0.1f) {
+            idleAccel = 0.3f;
+        }
+        transform.localScale += idleVelocity * Time.deltaTime * Vector3.up;
     }
 
     public override void takeDamage(int dmg) {

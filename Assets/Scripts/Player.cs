@@ -5,11 +5,14 @@ using UnityEngine;
 public class Player : Character
 {
 
+    float idleVelocity, idleAccel;
     // Start is called before the first frame update
     void Start()
     {
         mp = 4;
         mpmax = 4;
+        idleVelocity = 0;
+        idleAccel = -1;
     }
     public void attack(PlayerAttacks attackEnum) {
         switch(attackEnum) {
@@ -44,7 +47,13 @@ public class Player : Character
 
     void Update()
     {
-
+        idleVelocity += idleAccel * Time.deltaTime;
+        if (idleAccel > 0 && idleVelocity > 0.1f) {
+            idleAccel = -0.1f;
+        } else if (idleAccel < 0 && idleVelocity < -0.1f) {
+            idleAccel = 0.1f;
+        }
+        transform.localScale += 0.5f * idleVelocity * Time.deltaTime * Vector3.up;
     }
 
 }
