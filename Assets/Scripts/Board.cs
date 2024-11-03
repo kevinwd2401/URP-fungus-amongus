@@ -32,15 +32,6 @@ public class Board : MonoBehaviour
         
     }
 
-    public void DamageCharacterOnBoard(bool attackIsEnemy, int dmg, int x, int y)
-    {
-        Character character = characterCoords[x, y];
-        if (character == null) return;
-        if (attackIsEnemy && character.tag == "Enemy") return;
-        character.takeDamage(dmg);
-        Debug.Log("Damaging character on Board " + dmg);
-    }
-
     public void initiate()
     {
         getEnemyPrefabs();
@@ -48,7 +39,7 @@ public class Board : MonoBehaviour
         CreateTiles();
         SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
         string[] enemyType = { "Slimo", "Slimo", "Shroomie", "Dragoshroom" };
-        SpawnEnemies(1, 2, enemyType);
+        SpawnEnemies(1, 5, enemyType);
     }
 
     void getEnemyPrefabs()
@@ -65,7 +56,7 @@ public class Board : MonoBehaviour
     public void CreateTiles()
     {
         int[] tileIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        float[] tileProbabilities = { 0.9f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.02f };
+        float[] tileProbabilities = { 0.05f, 0.06f, 0.06f, 0.06f, 0.06f, 0.06f, 0.2f, 0.2f, 0.2f, 0.05f };
         randomizedTilePattern = createTilePatterns(tileIds, tileProbabilities);
 
 
