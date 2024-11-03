@@ -10,22 +10,25 @@ GameObject:
   m_Component:
   - component: {fileID: 6792783465409633856}
   - component: {fileID: 765950471137164668}
+<<<<<<< HEAD
   - component: {fileID: 8071674137915374529}
+=======
+  - component: {fileID: 4649715793832120429}
+>>>>>>> 74e63f4 (motor skill and attack skill made for enemy phase)
   m_Layer: 0
   m_Name: Shroomie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6792783465409633856
-Transform:
+--- !u!224 &6792783465409633856
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270023019649944502}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,6 +37,11 @@ Transform:
   - {fileID: 2436900487153734351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765950471137164668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,14 +57,20 @@ MonoBehaviour:
   spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
     type: 3}
   level: 0
+<<<<<<< HEAD
 --- !u!61 &8071674137915374529
 BoxCollider2D:
+=======
+--- !u!114 &4649715793832120429
+MonoBehaviour:
+>>>>>>> 74e63f4 (motor skill and attack skill made for enemy phase)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270023019649944502}
   m_Enabled: 1
+<<<<<<< HEAD
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -94,6 +108,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.41, y: 1.46}
   m_EdgeRadius: 0
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2d530f77bdb48a3a33fcdd7070ea0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index_in_hand: 0
+  buttons: {fileID: 0}
+  isAttack: 0
+  isMove: 1
+>>>>>>> 74e63f4 (motor skill and attack skill made for enemy phase)
 --- !u!1 &5446254770147601847
 GameObject:
   m_ObjectHideFlags: 0

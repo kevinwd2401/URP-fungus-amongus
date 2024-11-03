@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LunarSlash : Skill
+public class LunarSlash : AttackSkill
 {
     // Start is called before the first frame update
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinSlash : Skill
+public class SpinSlash : AttackSkill
 {
     // Start is called before the first frame update
 
