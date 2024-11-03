@@ -9,20 +9,26 @@ public class Board : MonoBehaviour
     public float width = 100;
     public int lengthBin = 100;
     public int widthBin = 100;
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public GameObject playerPrefab;
+    public GameObject[] baseTilePrefabs;
+    Player player;
 
     Vector2[,] tilePos; // position refers to float coordinate x,y
-    int[,] tileIds;
+    int[,] randomizedTilePattern;
     Character[,] characterCoords; // location refer to integer location i,j
+    Dictionary<string, GameObject> name2Prefab = new Dictionary<string, GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+
+        getEnemyPrefabs();
         Wipe();
         CreateTiles();
-        SpawnPlayer(Vector2.zero);
-        SpawnEnemy(new Vector2(51,51));
+        SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
+        string[] enemyType =  { "Slimo", "Slimo", "Shroomie", "Dragoshroom" };
+        SpawnEnemies(0,5, enemyType);
 
     }
 
@@ -32,11 +38,23 @@ public class Board : MonoBehaviour
         
     }
 
+    void getEnemyPrefabs()
+    {
+        // Load all button prefabs from the "Resources/Buttons" folder
+        enemyPrefabs = Resources.LoadAll<GameObject>("Enemy");
+        foreach (GameObject prefab in enemyPrefabs)
+        {
+            Debug.Log(prefab.name);
+            name2Prefab.Add(prefab.name, prefab);
+        }
+    }
+
     public void CreateTiles()
     {
-        int[] ids = { 1, 1, 0 };
-        float[] probabilities = { 0.05f, 0.05f, 0.9f };
-        tileIds = createTilePatterns(ids, probabilities);
+        int[] tileIds = { 1, 1, 0 };
+        float[] tileProbabilities = { 0.05f, 0.05f, 0.9f };
+        randomizedTilePattern = createTilePatterns(tileIds, tileProbabilities);
+
 
         tilePos = new Vector2[lengthBin, widthBin];
         for (int i = 0; i < lengthBin; i++)
@@ -47,7 +65,7 @@ public class Board : MonoBehaviour
                 float x = i * (length / lengthBin) - (length / 2);
                 float y = j * (width / widthBin) - (width / 2);
                 tilePos[i, j] = new Vector2(x, y);
-                int id = tileIds[i, j];
+                int id = randomizedTilePattern[i, j];
                 GameObject quadInstance = Instantiate(tiles[id], transform);
                 quadInstance.transform.localPosition = new Vector3(x, 0, y);
                 quadInstance.transform.localRotation = Quaternion.identity;
@@ -62,14 +80,16 @@ public class Board : MonoBehaviour
         characterCoords = new Character[lengthBin, widthBin];
     }
 
-    public void SpawnPlayer(Vector2 coord)
+    public void SpawnPlayer(Vector2 coords)
     {
-
+        player = Instantiate(playerPrefab).GetComponent<Player>();
+        player.Initialize(coords, 100);
     }
 
     public void SpawnEnemy(Vector2 coords, string enemyType = "", int level = 1, int hp = -1)
     {
-        Enemy enemy = Instantiate(enemyPrefab).GetComponent<Enemy>();
+
+        Enemy enemy = Instantiate(name2Prefab[enemyType]).GetComponent<Enemy>();
         enemy.Initialize(coords, enemyType, level, hp);
 
         // spawn it
@@ -78,6 +98,25 @@ public class Board : MonoBehaviour
         characterCoords[i, j] = enemy;
         enemy.spawn(tilePos[i,j]);
     }
+
+    public void SpawnEnemies(int innerRadius, int outerRadius, string[] enemyTypes)
+    {
+        for (int i= 0; i < enemyTypes.Length; i++)
+        {
+            int width = Random.Range(innerRadius, outerRadius);
+            int length = Random.Range(innerRadius, outerRadius);
+            int wSign = Random.Range(0, 2) * 2 - 1;
+            int lSign = Random.Range(0, 2) * 2 - 1;
+            int ii = width * wSign;
+            int jj = length * lSign;
+            Vector2 pos = player.getPos();
+            int x = (int)Mathf.Clamp(pos.x + ii, 0f, lengthBin);
+            int y = (int)Mathf.Clamp(pos.y + jj, 0f, widthBin);
+            Debug.Log(x + " " + y);
+            SpawnEnemy(new Vector2(x, y), enemyTypes[i]);
+        }
+    }
+        
 
 
     int[,] createTilePatterns(int [] id, float [] probability)
