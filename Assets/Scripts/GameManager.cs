@@ -71,8 +71,10 @@ public class GameManager : MonoBehaviour
         Destroy(character.gameObject);
     }
 
+
     public void damageCharacterOnBoard(bool enemy, int dmg, int x, int y)
     {
+
         Debug.Log("Damaging character on Board");
         
     }
@@ -93,6 +95,11 @@ public class GameManager : MonoBehaviour
         //// spawn player
 
         //// spawn enemy
+    }
+
+    public void playerAttacks(Attack a)
+    {
+        player.GetComponent<Player>().useAttack(a);
     }
 
 }

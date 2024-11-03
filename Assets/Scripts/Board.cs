@@ -88,6 +88,12 @@ public class Board : MonoBehaviour
     {
         player = Instantiate(playerPrefab).GetComponent<Player>();
         player.Initialize(coords, 100);
+
+        // spawn it
+        int i = (int)coords.x;
+        int j = (int)coords.y;
+        characterCoords[i, j] = player;
+        player.spawn(tilePos[i, j]);
     }
 
     public void SpawnEnemy(Vector2 coords, string enemyType = "", int level = 1, int hp = -1)
