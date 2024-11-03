@@ -18,10 +18,10 @@ public class LunarSlash : Skill
         };
         // your attack area
         (Vector2 coord, int dmg)[,] attackAreas = { // attackAreas.GetLength(0) = 4, attackAreas.GetLength(1) = area
-            { (new Vector2(1, 0), 2) , (new Vector2(2, 0), 2) , (new Vector2(3, 0), 2) },
-            { (new Vector2(-1, 0), 2) , (new Vector2(-2, 0), 2) , (new Vector2(-3, 0), 2) },
-            { (new Vector2(0, 1), 2) , (new Vector2(0, 2), 2) , (new Vector2(0, 3), 2) },
-            { (new Vector2(0, -1), 2) , (new Vector2(0, -2), 2) , (new Vector2(0, -3), 2) },
+            { (new Vector2(1, 0), 2) , (new Vector2(2, 0), 2) , (new Vector2(3, 0), 2) , (new Vector2(4, 0), 2) },
+            { (new Vector2(-1, 0), 2) , (new Vector2(-2, 0), 2) , (new Vector2(-3, 0), 2) , (new Vector2(-4, 0), 2) },
+            { (new Vector2(0, 1), 2) , (new Vector2(0, 2), 2) , (new Vector2(0, 3), 2)  , (new Vector2(0, 4), 2) },
+            { (new Vector2(0, -1), 2) , (new Vector2(0, -2), 2) , (new Vector2(0, -3), 2) , (new Vector2(0, -4), 2) },
         };
 
         // attack initated by human

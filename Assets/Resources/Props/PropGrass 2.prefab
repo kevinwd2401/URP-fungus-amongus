@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7488349385531278721}
   - component: {fileID: 5910761989674609306}
   m_Layer: 0
-  m_Name: Dargoshroom Image
+  m_Name: Spr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b040e9725d5fc4fa38ef2dbac657db91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f4b45fedf0874a8ba1749c80cedea7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8073118413636533353}
-  - component: {fileID: 2230986244260709893}
+  - component: {fileID: 407508564236472217}
   m_Layer: 0
-  m_Name: PropRock
+  m_Name: PropGrass 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ Transform:
   - {fileID: 7488349385531278721}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2230986244260709893
+--- !u!114 &407508564236472217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,9 +126,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4491595111908159753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c962d1b371c88473b9a02cc172fc0acd, type: 3}
+  m_Script: {fileID: 11500000, guid: 66a5db256be144250bb06ec931524919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
-    type: 3}
-  level: 0
+  spawnSparkPrefab: {fileID: 0}
+  level: 999
