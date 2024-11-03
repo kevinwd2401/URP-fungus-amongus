@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : Character
 {
@@ -33,6 +34,9 @@ public class Enemy : Character
     }
 
     public override void takeDamage(int dmg) {
+        GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 1.2f * Vector3.up, Quaternion.identity);
+        popup.GetComponent<TextMeshPro>().text = "-" + dmg;
+
         hp -= dmg;
         if (hp <= 0) {
             die();
