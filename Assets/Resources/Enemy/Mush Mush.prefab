@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c962d1b371c88473b9a02cc172fc0acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgPopupPrefab: {fileID: 6025172823767229888, guid: 984b2c67c530ed74b86560197d792f50,
+    type: 3}
   spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
     type: 3}
   damageSparkPrefab: {fileID: 1297219882730143785, guid: 51a75603f318fa24eae64f14cdf14489,
