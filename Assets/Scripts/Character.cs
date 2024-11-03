@@ -59,7 +59,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public virtual void takeDamage(int dmg) {
-        GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 0.6f * Vector3.up, Quaternion.identity);
+        GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 1.2f * Vector3.up, Quaternion.identity);
         popup.GetComponent<TextMeshPro>().text = "-" + dmg;
 
         hp -= dmg;

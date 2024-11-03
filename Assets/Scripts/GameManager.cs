@@ -143,11 +143,11 @@ public class GameManager : MonoBehaviour
 
     public void playerStartTurn() {
 
+        deck.drawTillFull();
         //Fill Mp;
         player.GetComponent<Player>().fillMp();
         gui.updateMP(player.GetComponent<Player>().getMpmax(), player.GetComponent<Player>().getMpmax());
         //Draw Card: figure out how many are missing
-        deck.drawTillFull();
 
     }
 
@@ -181,7 +181,11 @@ public class GameManager : MonoBehaviour
             foreach (Vector2 o in enemy.offsets) {
                 float dist = (targetPos - (currentPos + o)).magnitude;
                 if (dist < min_dist) {
-                    min_dist = dist;
+                    if (board.isTileOccupied((int)((currentPos + o)[0]),(int)((currentPos + o)[1]))) {
+                        //do nothing
+                    } else {
+                        min_dist = dist;
+                    }
                     min_o = o;
                 }
                 if (dist <= 0.5) {
