@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour
 {
     public GameObject dmgPopupPrefab;
     public GameObject spawnSparkPrefab;
+    public GameObject playerAttackPrefab;
     protected int hp;
     protected int mp;
     protected int mpmax;
@@ -26,8 +27,16 @@ public abstract class Character : MonoBehaviour
                 continue;
             }
             bool attackerIsEnemy = a.enemy;
+            if (!attackerIsEnemy) {
+                StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f));
+            }
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
         }
+    }
+    private IEnumerator spawnAttackParticles(float delay) {
+        yield return new WaitForSeconds(delay);
+        GameObject spark = Instantiate(playerAttackPrefab, transform.position, Quaternion.identity);
+        Destroy(spark, 4);
     }
 
     public void move(int xOffset, int yOffset) {

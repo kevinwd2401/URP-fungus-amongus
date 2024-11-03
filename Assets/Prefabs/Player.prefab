@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
     type: 3}
+  playerAttackPrefab: {fileID: 1917421705362212340, guid: ce641029f10e15b40a8fab917874da93,
+    type: 3}
 --- !u!1 &5666804353305007931
 GameObject:
   m_ObjectHideFlags: 0
