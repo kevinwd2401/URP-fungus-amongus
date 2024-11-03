@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
         initiate();
         board.initiate();
         player = GameObject.FindWithTag("Player");
-        player.setMpmax(4);
-        player.fillMp();
+        player.GetComponent<Player>().setMpmax(4);
+        player.GetComponent<Player>().fillMp();
     }
 
     // Update is called once per frame
