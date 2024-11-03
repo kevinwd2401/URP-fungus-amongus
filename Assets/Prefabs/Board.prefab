@@ -60,6 +60,7 @@ MonoBehaviour:
   lengthBin: 100
   widthBin: 100
   enemyPrefabs: []
+  propPrefabs: []
   playerPrefab: {fileID: 934078664377393073, guid: 482bb51725ec949119c05e38fb98bd27,
     type: 3}
   baseTilePrefabs: []

@@ -649,11 +649,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpNum: {fileID: 8097778200714588172}
-  mp: {fileID: 8697911268646297704}
-  mpmax: {fileID: 4202492483524493138}
+  mpImg: {fileID: 0}
+  mpmaxImg: {fileID: 0}
   mx3: {fileID: 21300000, guid: 9a01b0642d2304230b446691670b12c8, type: 3}
   mx4: {fileID: 21300000, guid: 6267189929e214e3a8ea486c27043741, type: 3}
   mx5: {fileID: 21300000, guid: 726cf04a40786448193544a6452bc37e, type: 3}
+  m0: {fileID: 0}
   m1: {fileID: 21300000, guid: 4228cfeb86a5440da8717124d1e78448, type: 3}
   m2: {fileID: 21300000, guid: 37e0be0be40554cf79132c8930f102f0, type: 3}
   m3: {fileID: 21300000, guid: 78dc1e8d038244b6ab4f46681dc11610, type: 3}

@@ -7,7 +7,7 @@ public abstract class Character : MonoBehaviour
 {
     public GameObject dmgPopupPrefab;
     public GameObject spawnSparkPrefab;
-    public GameObject playerAttackPrefab;
+    public GameObject[] playerAttackPrefab;
     protected int hp;
     protected int mp;
     protected int mpmax;
@@ -28,15 +28,25 @@ public abstract class Character : MonoBehaviour
             }
             bool attackerIsEnemy = a.enemy;
             if (!attackerIsEnemy) {
-                Vector3 pos = transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
-                StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f, pos));
+                Vector3 pos = new Vector3(-0.5f,0.5f,-0.5f) + transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
+                if (a.attackName == "Spin Slash") {
+                    //nothing
+                } else {
+                    StartCoroutine(spawnAttackParticles(a.attackName, attackCoord.magnitude * 0.08f, pos));
+                }
             }
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
         }
+        
+        if (a.attackName == "Spin Slash") {
+            GameObject spark = Instantiate(playerAttackPrefab[1], transform.position, Quaternion.identity);
+            Destroy(spark, 4);      
+        }
+        
     }
-    private IEnumerator spawnAttackParticles(float delay, Vector3 pos) {
+    private IEnumerator spawnAttackParticles(string name, float delay, Vector3 pos) {
         yield return new WaitForSeconds(delay);
-        GameObject spark = Instantiate(playerAttackPrefab, pos, Quaternion.identity);
+        GameObject spark = Instantiate(playerAttackPrefab[0], pos, Quaternion.identity);
         Destroy(spark, 4);
     }
 
@@ -69,6 +79,11 @@ public abstract class Character : MonoBehaviour
     }
 
     public virtual void takeDamage(int dmg) {
+
+        if (this is Props) {
+            return;
+        }
+
         GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 1.2f * Vector3.up, Quaternion.identity);
         popup.GetComponent<TextMeshPro>().text = "-" + dmg;
 
