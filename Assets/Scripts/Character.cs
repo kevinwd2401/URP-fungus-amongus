@@ -26,6 +26,7 @@ public abstract class Character : MonoBehaviour
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
         }
     }
+
     public void move(int xOffset, int yOffset) {
         coords.x = coords.x + xOffset;
         coords.y = coords.y + yOffset;

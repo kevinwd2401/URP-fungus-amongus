@@ -5,7 +5,7 @@ using UnityEngine;
 public class HorizontalStep : Skill
 {
     // Start is called before the first frame update
-    void Start()
+    public HorizontalStep()
     {
         // your move
         Vector2[] offsets = {
@@ -21,11 +21,12 @@ public class HorizontalStep : Skill
             { (new Vector2(0, 1), 0) },
             { (new Vector2(0, -1), 0)},
         };
+
+        isMove = true;
+        isAttack = false;
+
+        // attack initated by human
+        attack = new Attack("Horizontal Step", false, offsets, attackAreas);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

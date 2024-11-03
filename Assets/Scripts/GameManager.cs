@@ -100,4 +100,12 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Player>().useAttack(a);
     }
 
+    public void playerMoves(Attack move)
+    {
+
+        Debug.Log("Tried Moving");
+        Vector2 moveCoord = move.attackOffsets[move.chosenOffset];
+        player.GetComponent<Player>().move((int) moveCoord.x, (int) moveCoord.y);
+    }
+
 }

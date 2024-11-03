@@ -75,6 +75,10 @@ public class AttackTileDisplayer : MonoBehaviour
 
     public void initaiteAttack(int id)
     {
-        this.skill.Attack(id);
+        if (skill.isAttack)
+            skill.Attack(id);
+        if (skill.isMove)
+            skill.Move(id);
+        skill.CleanUpAfterAction();
     }
 }

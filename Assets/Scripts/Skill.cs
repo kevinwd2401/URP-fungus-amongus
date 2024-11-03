@@ -10,8 +10,9 @@ public class Skill : MonoBehaviour
     protected Vector3 characterWorldCoords;
     protected AttackTileDisplayer attackDisplay;
     protected Attack attack;
-    protected bool isAttack = true;
-    protected bool isMove = false;
+    public bool isAttack = true;
+    public bool isMove = false;
+    private bool cleanedUp = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,7 @@ public class Skill : MonoBehaviour
     }
 
 
-    public void GeneratePotentialAttackPlaces(Vector3 playerWorldCoords)
+    public void GeneratePotentialAttackPlaces(Vector3 characterWorldCoords)
     {
         attackDisplay.displayAttackedTiles(characterWorldCoords, attack, this);
     }
@@ -64,6 +65,22 @@ public class Skill : MonoBehaviour
         // know which attack it uses
         attack.chosenOffset = coord_id;
         GameManager.Instance.playerAttacks(attack);
+        Debug.Log("attacking from skill");
+
+    }
+
+    public void Move(int coord_id)
+    {
+        // know which move it uses
+        attack.chosenOffset = coord_id;
+        GameManager.Instance.playerMoves(attack);
+        Debug.Log("mmoving from skill");
+    }
+
+    public void CleanUpAfterAction()
+    {
+
+        if (cleanedUp) return;
 
         // turn it off after all is over
         GameManager.Instance.TurnOnPlayerOpacity(false);
@@ -73,6 +90,9 @@ public class Skill : MonoBehaviour
 
         // remove card from deck
         removeFromHand();
+
+        cleanedUp = true;
+
     }
 
     //remove from hand
