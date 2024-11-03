@@ -28,14 +28,15 @@ public abstract class Character : MonoBehaviour
             }
             bool attackerIsEnemy = a.enemy;
             if (!attackerIsEnemy) {
-                StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f));
+                Vector3 pos = transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
+                StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f, pos));
             }
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
         }
     }
-    private IEnumerator spawnAttackParticles(float delay) {
+    private IEnumerator spawnAttackParticles(float delay, Vector3 pos) {
         yield return new WaitForSeconds(delay);
-        GameObject spark = Instantiate(playerAttackPrefab, transform.position, Quaternion.identity);
+        GameObject spark = Instantiate(playerAttackPrefab, pos, Quaternion.identity);
         Destroy(spark, 4);
     }
 
