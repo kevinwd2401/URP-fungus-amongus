@@ -34,5 +34,7 @@ public class Slash : Skill
 
         // attack initated by human
         attack = new Attack("Slash", false, offsets, attackAreas);
+        isAttack = false;
+        isMove = true;
     }
 }

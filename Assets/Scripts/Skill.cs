@@ -10,6 +10,8 @@ public class Skill : MonoBehaviour
     protected Vector3 characterWorldCoords;
     protected AttackTileDisplayer attackDisplay;
     protected Attack attack;
+    protected bool isAttack = true;
+    protected bool isMove = false;
 
     // Start is called before the first frame update
     void Start()

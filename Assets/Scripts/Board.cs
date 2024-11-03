@@ -35,9 +35,10 @@ public class Board : MonoBehaviour
     public void DamageCharacterOnBoard(bool attackIsEnemy, int dmg, int x, int y)
     {
         Character character = characterCoords[x, y];
-        if (character != null) return;
+        if (character == null) return;
         if (attackIsEnemy && character.tag == "Enemy") return;
         character.takeDamage(dmg);
+        Debug.Log("Damaging character on Board " + dmg);
     }
 
     public void initiate()
@@ -47,7 +48,7 @@ public class Board : MonoBehaviour
         CreateTiles();
         SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
         string[] enemyType = { "Slimo", "Slimo", "Shroomie", "Dragoshroom" };
-        SpawnEnemies(1, 5, enemyType);
+        SpawnEnemies(1, 2, enemyType);
     }
 
     void getEnemyPrefabs()

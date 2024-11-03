@@ -74,8 +74,6 @@ public class GameManager : MonoBehaviour
 
     public void damageCharacterOnBoard(bool attackerIsEnemy, int dmg, int x, int y)
     {
-
-        Debug.Log("Damaging character on Board");
         board.DamageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
     }
 
