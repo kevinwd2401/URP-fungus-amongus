@@ -209,6 +209,9 @@ public class GameManager : MonoBehaviour
             //if (mSkill != null && !success) mSkill.lunge(currentPos, targetPos);
         }
 
+        string[] spawn = new string[2] {"Mush Mush", "Shroomie"};
+        board.SpawnEnemies(6, 12, spawn);
+
         playerStartTurn();
 
     }
