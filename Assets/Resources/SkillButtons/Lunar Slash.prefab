@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6639986175465301798}
   - component: {fileID: 2896030129417702808}
   - component: {fileID: 7012856684134110436}
-  - component: {fileID: 9072093570607257214}
+  - component: {fileID: 2101364786264686540}
   m_Layer: 5
   m_Name: Lunar Slash
   m_TagString: Untagged
@@ -256,19 +256,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9072093570607257214}
-        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+      - m_Target: {fileID: 2101364786264686540}
+        m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9072093570607257214
+--- !u!114 &2101364786264686540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8940368491240980027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba4afc9e912f4840a6912222d207eb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a148890c7f7c4b6d81f458eae5a2c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index_in_hand: 0
