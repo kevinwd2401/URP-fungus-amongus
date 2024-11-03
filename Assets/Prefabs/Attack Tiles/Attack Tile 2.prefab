@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2158306483288412116}
   - component: {fileID: 5979164122287145160}
+  - component: {fileID: 4077932270399215046}
   m_Layer: 0
   m_Name: Attack Tile 2 Image
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.145, z: 0}
-  m_LocalScale: {x: 0.31, y: 0.31, z: 1}
+  m_LocalScale: {x: 0.33, y: 0.33, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6629960033043591919}
@@ -116,3 +117,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4077932270399215046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381835843005017541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802bda94f82634939af8881c57148efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

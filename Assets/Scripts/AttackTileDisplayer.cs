@@ -39,6 +39,8 @@ public class AttackTileDisplayer : MonoBehaviour
             Vector2 attack_coord = a.attackOffsets[i];
             Vector3 newPos = worldPos + GameManager.Instance.tileLength * new Vector3(attack_coord.x, 0f, attack_coord.y);
             GameObject ui = Instantiate(selectedUIPrefab, newPos, Quaternion.identity);
+            PotentialAttackTile pat = ui.GetComponentInChildren<PotentialAttackTile>();
+            pat.initalize(i, this);
             UIList.Add(ui);
 
             // instantiate attack area
@@ -46,9 +48,16 @@ public class AttackTileDisplayer : MonoBehaviour
             {
                 (Vector2 attack_area_coord, int dmg) = a.attackAreas[i,j];
                 Vector3 newPos2 = worldPos + GameManager.Instance.tileLength * new Vector3(attack_area_coord.x, 0f, attack_area_coord.y);
-                GameObject ui2 = Instantiate(selectedUIPrefab2, newPos2, Quaternion.identity);
-                UI2List[i,j] = ui2;
+                //GameObject ui2 = Instantiate(selectedUIPrefab2, newPos2, Quaternion.identity);
+                //UI2List[i,j] = ui2;
             }
         }
+    }
+
+    public void displayAttackArea(int attackCoordId, bool turnOn)
+    {
+        // turn on attack coord's id
+        //attackCoordId
+        Debug.Log(attackCoordId + " " + turnOn);
     }
 }

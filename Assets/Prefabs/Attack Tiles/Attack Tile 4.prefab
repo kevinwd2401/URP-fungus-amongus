@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8711956204506656426}
   - component: {fileID: 4270172635560144146}
+  - component: {fileID: 4536424789392099221}
   m_Layer: 0
   m_Name: Attack Tile 4 Image
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4536424789392099221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167976647954052958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802bda94f82634939af8881c57148efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6030661852262763951
 GameObject:
   m_ObjectHideFlags: 0
