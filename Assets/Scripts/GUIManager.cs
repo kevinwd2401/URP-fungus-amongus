@@ -44,7 +44,6 @@ public class GUIManager : MonoBehaviour
     {
         //Test Code
         updateHP(3);
-        updateMP(2,3);
     }
 
     // Update is called once per frame

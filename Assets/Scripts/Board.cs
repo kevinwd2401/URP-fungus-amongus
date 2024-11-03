@@ -10,6 +10,7 @@ public class Board : MonoBehaviour
     public int lengthBin = 100;
     public int widthBin = 100;
     public GameObject[] enemyPrefabs;
+    public GameObject[] propPrefabs;
     public GameObject playerPrefab;
     public GameObject[] baseTilePrefabs;
     Player player;
@@ -45,7 +46,11 @@ public class Board : MonoBehaviour
         getEnemyPrefabs();
         Wipe();
         CreateTiles();
+
+        SpawnProps();
+
         SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
+
         string[] enemyType = { "Slimo", "Slimo", "Shroomie", "Dragoshroom" };
         SpawnEnemies(1, 5, enemyType);
     }
@@ -60,13 +65,22 @@ public class Board : MonoBehaviour
             name2Prefab.Add(prefab.name, prefab);
         }
     }
+    void getPropPrefabs()
+    {
+        // Load all button prefabs from the "Resources/Buttons" folder
+        propPrefabs = Resources.LoadAll<GameObject>("Props");
+        foreach (GameObject prefab in propPrefabs)
+        {
+            //Debug.Log(prefab.name);
+            name2Prefab.Add(prefab.name, prefab);
+        }
+    }
 
     public void CreateTiles()
     {
         int[] tileIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         float[] tileProbabilities = { 0.05f, 0.06f, 0.06f, 0.06f, 0.06f, 0.06f, 0.2f, 0.2f, 0.2f, 0.05f };
         randomizedTilePattern = createTilePatterns(tileIds, tileProbabilities);
-
 
         tilePos = new Vector2[lengthBin, widthBin];
         for (int i = 0; i < lengthBin; i++)
@@ -84,12 +98,43 @@ public class Board : MonoBehaviour
             }
         }
     }
+    public void SpawnProp(Vector2 coords, string propType = "", int level = 1, int hp = -1)
+    {
 
+        Prop prop = Instantiate(name2Prefab[propType]).GetComponent<Prop>();
+        prop.Initialize(coords, propType, level, hp);
+
+        // spawn it
+        int i = (int) coords.x;
+        int j = (int) coords.y;
+
+        characterCoords[i, j] = prop;
+
+        prop.spawn(tilePos[i,j]);
+    }
     public void SpawnProps() {
         int[] tileIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        float[] tileProbabilities = { 0.05f, 0.06f, 0.06f, 0.06f, 0.06f, 0.06f, 0.2f, 0.2f, 0.2f, 0.05f };
-        randomizedTilePattern = createTilePatterns(tileIds, tileProbabilities);
-        string[] PropTypes = { "r1", "r2", "r3", "r4", "r5", "r6"};
+        float[] tileProbabilities = { 0.9f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f};
+        
+        //First Entry's value is the rest (sum = 1)
+        float pRest = 1.0f;
+        for (int i = 1; i < tileProbabilities.Length; i++) {
+            pRest -= tileProbabilities[i];
+        }
+        tileProbabilities[0] = pRest;
+        
+        randomizedPropPattern = createTilePatterns(tileIds, tileProbabilities);
+        string[] PropTypes = {"NONE", "RockProp 1", "RockProp 2", "RockProp 3", "RockProp 4", "RockProp 5", "RockProp 6", "GrassProp 1", "GrassProp 2", "GrassProp 3", "GrassProp 4"};
+
+        //Make sure that nothing spawns on the players
+        randomizedPropPattern[lengthBin / 2, widthBin / 2] = 0;
+
+        //for each tile: spawn the prop
+        for(int i = 0; i < tileProbabilities.GetLength(0); i++) {
+            for(int j = 0; j < tileProbabilities.GetLength(1); j++) {
+                if (randomizedPropPattern[i][j])
+        }   
+        }
 
 
     }
