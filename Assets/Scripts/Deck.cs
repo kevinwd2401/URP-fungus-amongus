@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Deck : MonoBehaviour
     public Card[] hand;
     public Buttons buttons;
     int handsize = 5;
+
+    public Text draw_pile_text;
 
     public Deck() {
         cards = new List<Card>();
@@ -69,7 +72,7 @@ public class Deck : MonoBehaviour
 
         discard_pile.Add(hand[index]);
         hand[index] = null;
-        updateHandDisplay();
+        updateDisplay();
 
     }
 
@@ -103,7 +106,7 @@ public class Deck : MonoBehaviour
             draw_pile.RemoveAt(0);
         }
 
-        updateHandDisplay();
+        updateDisplay();
     }
 
     public int getCurrentHandSize() {
@@ -118,7 +121,10 @@ public class Deck : MonoBehaviour
         return c;
     }
 
-    void updateHandDisplay() {
+    void updateDisplay() {
+
+        draw_pile_text.text = (draw_pile.Count).ToString(); 
+
         buttons.ClearButtons();
         for(int i = 0; i < hand.Length; ++i) {
             if (hand[i] != null) {
