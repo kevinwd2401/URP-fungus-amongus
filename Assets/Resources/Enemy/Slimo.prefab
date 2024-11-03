@@ -49,6 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
     type: 3}
+  damageSparkPrefab: {fileID: 1297219882730143785, guid: 51a75603f318fa24eae64f14cdf14489,
+    type: 3}
+  deathSparkPrefab: {fileID: 4709525459900906878, guid: ea1b0240164018e4d9f3b390fe357b22,
+    type: 3}
   level: 0
 --- !u!114 &3205165387335996662
 MonoBehaviour:
@@ -64,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index_in_hand: 0
   buttons: {fileID: 0}
+  mpCost: 0
   isAttack: 1
   isMove: 0
 --- !u!114 &250052326668919114
@@ -80,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index_in_hand: 0
   buttons: {fileID: 0}
+  mpCost: 0
   isAttack: 0
   isMove: 1
 --- !u!1 &4082242165699179274

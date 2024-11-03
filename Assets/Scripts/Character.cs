@@ -54,7 +54,7 @@ public abstract class Character : MonoBehaviour
         return transform.position;
     }
 
-    public void takeDamage(int dmg) {
+    public virtual void takeDamage(int dmg) {
         hp -= dmg;
         if (hp <= 0) {
             die();

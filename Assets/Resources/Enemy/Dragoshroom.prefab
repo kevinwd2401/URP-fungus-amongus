@@ -132,6 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
     type: 3}
+  damageSparkPrefab: {fileID: 1297219882730143785, guid: 51a75603f318fa24eae64f14cdf14489,
+    type: 3}
+  deathSparkPrefab: {fileID: 4709525459900906878, guid: ea1b0240164018e4d9f3b390fe357b22,
+    type: 3}
   level: 0
 --- !u!61 &4668549654865458139
 BoxCollider2D:
