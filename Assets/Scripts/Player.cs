@@ -39,6 +39,7 @@ public class Player : Character
     {
 
     }
+
 }
 
 public enum MovementType {

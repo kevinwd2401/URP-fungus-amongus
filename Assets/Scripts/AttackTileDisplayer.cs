@@ -19,7 +19,7 @@ public class AttackTileDisplayer : MonoBehaviour
     public void displayAttackedTiles(Vector3 worldPos, Attack a) {
         clearUI();
         foreach ((Vector2 coord, int dmg) att in a.attackOffsets) {
-            Vector3 newPos = worldPos + GameManager.Instance.tileLength * new Vector3(att.coord.x, 0.3f, att.coord.y);
+            Vector3 newPos = worldPos + GameManager.Instance.tileLength * new Vector3(att.coord.x, 0f, att.coord.y);
             GameObject ui = Instantiate(selectedUIPrefab, newPos, Quaternion.identity);
             UIList.Add(ui);
         }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // making it singleton
     public Board board;
     public static GameManager Instance { get; private set; }
+    private GameObject player;
 
     public Vector2 boardDim
     {
@@ -43,12 +44,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         initiate();
+        board.initiate();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public Vector3 getPlayerWorldCoords()
+    {
+        return player.GetComponent<Player>().getWorldCoords();
     }
 
     

@@ -40,6 +40,12 @@ public abstract class Character : MonoBehaviour
     public Vector2 getPos() {
         return coords;
     }
+
+    public virtual Vector3 getWorldCoords()
+    {
+        return transform.position;
+    }
+
     public void takeDamage(int dmg) {
         hp -= dmg;
         if (hp <= 0) {
@@ -57,12 +63,13 @@ public abstract class Character : MonoBehaviour
         this.hp = hp;
     }
 
-    public void spawn(Vector2 worldPos) {
+    public void spawn(Vector2 worldPos)
+    {
+        transform.position = new Vector3(worldPos.x, 0, worldPos.y);
         if (spawnSparkPrefab != null) {
             GameObject spark = Instantiate(spawnSparkPrefab, transform.position, Quaternion.identity);
             Destroy(spark, 3);
         }
-        transform.position = new Vector3(worldPos.x, 0, worldPos.y);
     }
 }
 

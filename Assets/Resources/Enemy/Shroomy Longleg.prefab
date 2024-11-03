@@ -129,4 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c962d1b371c88473b9a02cc172fc0acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSparkPrefab: {fileID: 7838133395462700837, guid: 630210949c8f7e24aa0e00ab7828bd05,
+    type: 3}
   level: 0

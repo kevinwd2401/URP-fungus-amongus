@@ -44,10 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b976ef5ac8242cf8dc20ed165a78dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileA: {fileID: 4969327053141405071, guid: ecee342dacc60477e9a99b3c31ad9661, type: 3}
+  tiles:
+  - {fileID: 7337398861542953124, guid: 0958e95deb64844e997bed16f0d611ee, type: 3}
+  - {fileID: 8186210402537619471, guid: e47d91441c70f416299a22243fa11842, type: 3}
+  - {fileID: 7576694661498321140, guid: 51ad55364afa0494592eb86d3acc0126, type: 3}
+  - {fileID: 916687372518010481, guid: dcce690f3acee464493ea1ba90b2104f, type: 3}
+  - {fileID: 2232529807563966519, guid: 7895f4f7b515f48bfaac253d1dfc0b6c, type: 3}
+  - {fileID: 5043536648591038509, guid: eafba0900d5e2437ea79330d7fb5fe97, type: 3}
+  - {fileID: 388888723197319244, guid: 1fbff67382a864bc48ab8ee155eb101d, type: 3}
+  - {fileID: 6312864677223515561, guid: a0d68c063f97f42efa1c90ad9fa19d37, type: 3}
+  - {fileID: 2147032012490199491, guid: 20b8cf3b9317f4f4f8555d1df4b31513, type: 3}
+  - {fileID: 245445946597417821, guid: 1af3ce1bfa16a4f40b4bc85e103099aa, type: 3}
   length: 100
   width: 100
   lengthBin: 100
   widthBin: 100
-  enemyPrefab: {fileID: 8750313075715973668, guid: 1816e8246a6e549b684db370266c4404, type: 3}
-  playerPrefab: {fileID: 934078664377393073, guid: 482bb51725ec949119c05e38fb98bd27, type: 3}
+  enemyPrefabs: []
+  playerPrefab: {fileID: 934078664377393073, guid: 482bb51725ec949119c05e38fb98bd27,
+    type: 3}
+  baseTilePrefabs: []
