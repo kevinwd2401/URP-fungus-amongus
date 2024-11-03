@@ -72,11 +72,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void damageCharacterOnBoard(bool enemy, int dmg, int x, int y)
+    public void damageCharacterOnBoard(bool attackerIsEnemy, int dmg, int x, int y)
     {
 
         Debug.Log("Damaging character on Board");
-        
+        board.DamageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
     }
 
     public void TurnOnPlayerOpacity(bool on)

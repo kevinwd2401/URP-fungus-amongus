@@ -32,6 +32,14 @@ public class Board : MonoBehaviour
         
     }
 
+    public void DamageCharacterOnBoard(bool attackIsEnemy, int dmg, int x, int y)
+    {
+        Character character = characterCoords[x, y];
+        if (character != null) return;
+        if (attackIsEnemy && character.tag == "Enemy") return;
+        character.takeDamage(dmg);
+    }
+
     public void initiate()
     {
         getEnemyPrefabs();
