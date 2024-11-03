@@ -82,6 +82,7 @@ public class Buttons : MonoBehaviour
             Skill s = newButton.GetComponent<Skill>();
             s.index_in_hand = i;
             s.buttons = this;
+            s.mpCost = deck.hand[i].cost;
 
             LoadedButtons.Add(newButton);
 

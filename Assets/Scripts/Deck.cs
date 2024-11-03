@@ -180,13 +180,13 @@ public class Card {
 
         switch (t) {
             case CardType.HorizontalStep : 
-                c = 0;
+                c = 1;
                 //s = HorizontalStep();
                 n = "Horizontal Step";
                 d = "Move horizontally for 1 tile.";
                 break;
             case CardType.DiagonalStep : 
-                c = 0;
+                c = 1;
                 //s = DiagonalStep();
                 n = "Diagonal Step";
                 d = "Move diagonally for 1 tile.";
@@ -204,10 +204,10 @@ public class Card {
                 d = "deal 1 DMG to all surrounding tiles";
                 break;
             case CardType.LunarSlash : 
-                c = 1;
-                //s = SpinSlash();
+                c = 2;
+                //s = LunarSlash();
                 n = "Lunar Slash";
-                d = "deal 2 DMG to 3 tiles in horizontal direction";
+                d = "deal 2 DMG to 4 tiles in horizontal direction";
                 break;
             default:
                 break;

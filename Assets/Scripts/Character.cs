@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour
     public GameObject spawnSparkPrefab;
     protected int hp;
     protected int mp;
+    protected int mpmax;
     private Vector2 coords;
 
     public void useAttack(Attack a) {
@@ -77,6 +78,22 @@ public abstract class Character : MonoBehaviour
             GameObject spark = Instantiate(spawnSparkPrefab, transform.position, Quaternion.identity);
             Destroy(spark, 3);
         }
+    }
+
+    public int getMp() {
+        return mp;
+    }
+    public void setMp(int newmp) {
+        mp = newmp;
+    }
+    public void fillMp() {
+        this.setMp(mpmax);
+    }
+    public int getMpmax() {
+        return mpmax;
+    }
+    public void setMpmax(int newmpmax) {
+        mpmax = newmpmax;
     }
 }
 

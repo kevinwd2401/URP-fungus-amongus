@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    public int index_in_hand;
-    public Buttons buttons;
+    public int index_in_hand = 0;
+    public Buttons buttons = null;
+    public int mpCost = 0;
 
     protected Vector3 characterWorldCoords;
     protected AttackTileDisplayer attackDisplay;
@@ -38,6 +39,15 @@ public class Skill : MonoBehaviour
 
     public void Click()
     {
+
+        //Check for Mana cost:
+        int playerMP = GameManager.Instance.getPlayerMP();
+        if (this.mpCost > playerMP) {
+            //Fail -> some feedback
+            GameManager.Instance.notifyPlayerNoMp();
+            return;
+        }
+
         //Debug.Log("herehere"+attackAreas.GetLength(0) + " " + attackAreas.GetLength(1));
         characterWorldCoords = GameManager.Instance.getPlayerWorldCoords();
         attack.enemy = false;
@@ -74,13 +84,18 @@ public class Skill : MonoBehaviour
         // know which move it uses
         attack.chosenOffset = coord_id;
         GameManager.Instance.playerMoves(attack);
-        Debug.Log("mmoving from skill");
+        Debug.Log("moving from skill");
     }
 
     public void CleanUpAfterAction()
     {
 
         if (cleanedUp) return;
+
+        //mp cost
+        int p_mp = GameManager.Instance.getPlayerMP();
+        p_mp -= this.mpCost;
+        GameManager.Instance.setPlayerMP(p_mp);
 
         // turn it off after all is over
         GameManager.Instance.TurnOnPlayerOpacity(false);

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     private GameObject player;
 
+    public GUIManager gui;
+
     public Vector2 boardDim
     {
         get
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
         initiate();
         board.initiate();
         player = GameObject.FindWithTag("Player");
+        player.setMpmax(4);
+        player.fillMp();
     }
 
     // Update is called once per frame
@@ -106,6 +110,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("Tried Moving");
         Vector2 moveCoord = move.attackOffsets[move.chosenOffset];
         player.GetComponent<Player>().move((int) moveCoord.x, (int) moveCoord.y);
+    }
+
+    public int getPlayerMP() {
+        return player.GetComponent<Player>().getMp();
+    }
+    public void setPlayerMP(int mpnew) {
+        player.GetComponent<Player>().setMp(mpnew);
+        gui.updateMP(mpnew, player.GetComponent<Player>().getMpmax());
+    }
+    public void setPlayerMpmax(int mpmaxnew) {
+        player.GetComponent<Player>().setMpmax(mpmaxnew);
+        gui.updateMP(player.GetComponent<Player>().getMp(), mpmaxnew);
+    }
+    public void notifyPlayerNoMp() {
+        return;
     }
 
 }
