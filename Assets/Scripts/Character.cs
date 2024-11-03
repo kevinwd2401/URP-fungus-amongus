@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public abstract class Character : MonoBehaviour
 {
+    public GameObject dmgPopupPrefab;
     public GameObject spawnSparkPrefab;
     protected int hp;
     protected int mp;
@@ -55,6 +57,9 @@ public abstract class Character : MonoBehaviour
     }
 
     public virtual void takeDamage(int dmg) {
+        GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 0.6f * Vector3.up, Quaternion.identity);
+        popup.GetComponent<TextMeshPro>().text = "-" + dmg;
+
         hp -= dmg;
         if (hp <= 0) {
             die();
