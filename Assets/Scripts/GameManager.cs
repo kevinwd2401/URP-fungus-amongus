@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public GameObject player;
 
+    public Deck deck;
+
     public GUIManager gui;
 
     public Vector2 boardDim
@@ -71,11 +73,17 @@ public class GameManager : MonoBehaviour
 
     public void moveCharacterOnBoard(Character character, int x, int y)
     {
-        //delete reference from original tile first
+        Vector2 ogPos = character.getPos();
+        board.characterCoords[(int)ogPos[0],(int)ogPos[1]] = null;
+
+        board.characterCoords[x,y] = character;
         Debug.Log("Moving character on Board");
     }
     public void deleteCharacterFromBoard(Character character)
     {
+        Vector2 ogPos = character.getPos();
+        board.characterCoords[(int)ogPos[0],(int)ogPos[1]] = null;
+
         Debug.Log("Deleting character on Board");
         Destroy(character.gameObject);
     }
@@ -115,6 +123,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Tried Moving");
         Vector2 moveCoord = move.attackOffsets[move.chosenOffset];
         player.GetComponent<Player>().move((int) moveCoord.x, (int) moveCoord.y);
+
     }
 
     public int getPlayerMP() {
@@ -132,26 +141,71 @@ public class GameManager : MonoBehaviour
         return;
     }
 
+    public void playerStartTurn() {
+
+        //Fill Mp;
+        player.GetComponent<Player>().fillMp();
+        gui.updateMP(player.GetComponent<Player>().getMpmax(), player.GetComponent<Player>().getMpmax());
+        //Draw Card: figure out how many are missing
+        deck.drawTillFull();
+
+    }
+
+    public void playerEndTurn() {
+
+        Debug.Log("P end Turn!");
+        enemiesTurn();
+
+    }
+
     public void enemiesTurn()
     {
         /* Now enemy gets to attack */
         // get list of all enemies present
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy_go in enemies)
         {
+            Enemy enemy = enemy_go.GetComponent<Enemy>();
             Debug.Log("ENEMY ALARM");
-            MotorSkill mSkill = enemy.GetComponent<MotorSkill>();
-            AttackSkill aSkill = enemy.GetComponent<AttackSkill>();
+            //MotorSkill mSkill = enemy.GetComponent<MotorSkill>();
+            //AttackSkill aSkill = enemy.GetComponent<AttackSkill>();
             
             Vector2 currentPos = enemy.GetComponent<Enemy>().getPos();
             Vector2 targetPos = getPlayerCoords();
 
             // attack if you can
+            //LOGIC: if player in attack range, attack
             bool success = false;
-            if (aSkill != null) success = aSkill.sabotage(currentPos, targetPos);
+            Vector2 min_o = new Vector2(0.0f,0.0f);
+            float min_dist = 999.9f;
+            foreach (Vector2 o in enemy.offsets) {
+                float dist = (targetPos - (currentPos + o)).magnitude;
+                if (dist < min_dist) {
+                    min_dist = dist;
+                    min_o = o;
+                }
+                if (dist <= 0.5) {
+                    Debug.Log("IN RANGE");
+                    success = true;
+                }
+            }
+            if (success) {
+                //enemy attack player
+                Debug.Log("E HIT P");
+                damageCharacterOnBoard(true, 2, (int)targetPos[0], (int)targetPos[1]);
+
+            } else {
+                Debug.Log("E MOVE");
+                enemy.move((int)min_o[0], (int)min_o[1]);
+
+            }
+
+            //if (aSkill != null) success = aSkill.sabotage(currentPos, targetPos);
             // move if you can't
-            if (mSkill != null && !success) mSkill.lunge(currentPos, targetPos);
+            //if (mSkill != null && !success) mSkill.lunge(currentPos, targetPos);
         }
+
+        playerStartTurn();
 
     }
 }

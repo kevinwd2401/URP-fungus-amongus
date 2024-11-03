@@ -18,7 +18,7 @@ public class Board : MonoBehaviour
     Vector2[,] tilePos; // position refers to float coordinate x,y
     int[,] randomizedTilePattern;
     int[,] randomizedPropPattern;
-    Character[,] characterCoords; // location refer to integer location i,j
+    public Character[,] characterCoords; // location refer to integer location i,j
     Dictionary<string, GameObject> name2Prefab = new Dictionary<string, GameObject>();
 
 

@@ -139,6 +139,16 @@ public class Deck : MonoBehaviour
         }
     }
 
+    public void drawTillFull() {
+
+        int hs = getCurrentHandSize();
+        int drawCount = handsize - hs;
+        for (int i = 0; i < drawCount; i++) {
+            drawCard();
+        }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
