@@ -29,7 +29,11 @@ public abstract class Character : MonoBehaviour
             bool attackerIsEnemy = a.enemy;
             if (!attackerIsEnemy) {
                 Vector3 pos = new Vector3(-0.5f,0.5f,-0.5f) + transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
-                StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f, pos));
+                if (a.attackName == "Spin Slash") {
+                    //nothing
+                } else {
+                    StartCoroutine(spawnAttackParticles(a.attackName, attackCoord.magnitude * 0.08f, pos));
+                }
             }
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
         }
