@@ -17,6 +17,7 @@ public class Board : MonoBehaviour
 
     Vector2[,] tilePos; // position refers to float coordinate x,y
     int[,] randomizedTilePattern;
+    int[,] randomizedPropPattern;
     Character[,] characterCoords; // location refer to integer location i,j
     Dictionary<string, GameObject> name2Prefab = new Dictionary<string, GameObject>();
 
@@ -44,6 +45,7 @@ public class Board : MonoBehaviour
     public void initiate()
     {
         getEnemyPrefabs();
+        getPropPrefabs();
         Wipe();
         CreateTiles();
 
@@ -51,7 +53,7 @@ public class Board : MonoBehaviour
 
         SpawnPlayer(new Vector2(lengthBin / 2, widthBin / 2));
 
-        string[] enemyType = { "Slimo", "Slimo", "Shroomie", "Dragoshroom" };
+        string[] enemyType = { "Slimo", "Rock", "Shroomie", "Dragoshroom" };
         SpawnEnemies(1, 5, enemyType);
     }
 
@@ -98,22 +100,25 @@ public class Board : MonoBehaviour
             }
         }
     }
-    public void SpawnProp(Vector2 coords, string propType = "", int level = 1, int hp = -1)
+    public void SpawnProp(Vector2 coords, string propType = "", bool collision = true, int level = 1, int hp = -1)
     {
 
-        Prop prop = Instantiate(name2Prefab[propType]).GetComponent<Prop>();
+        Props prop = Instantiate(name2Prefab[propType]).GetComponent<Props>();
         prop.Initialize(coords, propType, level, hp);
 
         // spawn it
         int i = (int) coords.x;
         int j = (int) coords.y;
 
-        characterCoords[i, j] = prop;
+        if (collision) {
+            characterCoords[i, j] = prop;
+        }
 
         prop.spawn(tilePos[i,j]);
     }
     public void SpawnProps() {
-        int[] tileIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int[] tileIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        bool[] tileCollisionBools = { false, true, true, true, true, true, true, false, false, false, false };
         float[] tileProbabilities = { 0.9f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f, 0.01f};
         
         //First Entry's value is the rest (sum = 1)
@@ -124,15 +129,18 @@ public class Board : MonoBehaviour
         tileProbabilities[0] = pRest;
         
         randomizedPropPattern = createTilePatterns(tileIds, tileProbabilities);
-        string[] PropTypes = {"NONE", "RockProp 1", "RockProp 2", "RockProp 3", "RockProp 4", "RockProp 5", "RockProp 6", "GrassProp 1", "GrassProp 2", "GrassProp 3", "GrassProp 4"};
+        string[] PropTypes = {"NONE", "PropRock 1", "PropRock 2", "PropRock 3", "PropRock 4", "PropRock 5", "PropRock 6", "PropGrass 1", "PropGrass 2", "PropGrass 3", "PropGrass 4"};
 
         //Make sure that nothing spawns on the players
         randomizedPropPattern[lengthBin / 2, widthBin / 2] = 0;
 
-        //for each tile: spawn the prop
-        for(int i = 0; i < tileProbabilities.GetLength(0); i++) {
-            for(int j = 0; j < tileProbabilities.GetLength(1); j++) {
-                if (randomizedPropPattern[i][j])
+        //for each tile: spawn the props
+        for(int i = 0; i < randomizedPropPattern.GetLength(0); i++) {
+            for(int j = 0; j < randomizedPropPattern.GetLength(1); j++) {
+                int tileRandomResult = randomizedPropPattern[i,j];
+                if (tileRandomResult > 0) {
+                    SpawnProp(new Vector2(i, j), PropTypes[tileRandomResult], tileCollisionBools[tileRandomResult]);
+                }
         }   
         }
 
