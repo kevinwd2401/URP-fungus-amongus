@@ -24,7 +24,9 @@ public class Slash : Skill
         // generate potential places to click
         GeneratePotentialAttackPlaces(playerWorldCoords);
 
-        // the mouse will rotate radially around
+        // if you hover over an attack area, it should show area of attak.
+        //ShowPotentialAttackArea();
+
         // if it is over the character, character will become slightly transparent.
         GameManager.Instance.TurnOnPlayerOpacity(true);
 
@@ -38,24 +40,30 @@ public class Slash : Skill
 
     public void GeneratePotentialAttackPlaces(Vector3 playerWorldCoords)
     {
-        (Vector2 coord, int dmg)[] offsetes = {
-            (new Vector2(1, 0), 0),
-            (new Vector2(-1, 0), 0),
-            (new Vector2(0, 1), 0),
-            (new Vector2(0, -1), 0),
+        Vector2 [] offsets = {
+            new Vector2(1, 0),
+            new Vector2(-1, 0),
+            new Vector2(0, 1),
+            new Vector2(0, -1),
         };
-        Attack fakeAttack = new Attack("", false, offsetes);
-        attackDisplay.displayAttackedTiles(playerWorldCoords, fakeAttack);
-        Debug.Log("genrated potential area");
+        (Vector2 coord, int dmg)[,] attackAreas = {
+            { (new Vector2(1, 0), 1) },
+            { (new Vector2(-1, 0), 1) },
+            { (new Vector2(0, 1), 1) },
+            { (new Vector2(0, -1), 1) },
+        };
+        Attack attack = new Attack("Slash", false, offsets, attackAreas);
+        attackDisplay.displayAttackedTiles(playerWorldCoords, attack);
+        Debug.Log("generated potential area");
     }
 
     public void Attack(Vector3 playerWorldCoords)
     {
-        (Vector2 coord, int dmg)[] offsetes = { (new Vector2(1, 0), 1) };
-        Attack attack = new Attack("Slash", false, offsetes);
+        //(Vector2 coord, int dmg)[] offsetes = { (new Vector2(1, 0), 1) };
+        //Attack attack = new Attack("Slash", false, offsetes);
 
-        attackDisplay.displayAttackedTiles(playerWorldCoords, attack);
-        Debug.Log("slash clicked");
+        //attackDisplay.displayAttackedTiles(playerWorldCoords, attack);
+        //Debug.Log("slash clicked");
 
     }
 }

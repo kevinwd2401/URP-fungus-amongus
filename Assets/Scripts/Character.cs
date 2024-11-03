@@ -11,14 +11,14 @@ public abstract class Character : MonoBehaviour
 
     public void useAttack(Attack a) {
         //go through list of attack offsets and damage the enemy on that tile if it exists.
-        foreach ((Vector2 coord, int dmg) att in a.attackOffsets) {
-            int x = (int) coords.x + (int) att.coord.x;
-            int y = (int) coords.y + (int) att.coord.y;
-            if (x < 0 || y < 0 || y > 99 || x > 99) {
-                continue;
-            }
-            GameManager.Instance.damageCharacterOnBoard(a.enemy, att.dmg, x, y);
-        }
+        //foreach ((Vector2 coord, int dmg) att in a.attackOffsets) {
+        //    int x = (int) coords.x + (int) att.coord.x;
+        //    int y = (int) coords.y + (int) att.coord.y;
+        //    if (x < 0 || y < 0 || y > 99 || x > 99) {
+        //        continue;
+        //    }
+        //    GameManager.Instance.damageCharacterOnBoard(a.enemy, att.dmg, x, y);
+        //}
     }
     public void move(int xOffset, int yOffset) {
         coords.x = coords.x + xOffset;
@@ -77,10 +77,14 @@ public abstract class Character : MonoBehaviour
 public class Attack {
     public bool enemy;
     public string attackName;
-    public (Vector2 coord, int dmg)[] attackOffsets;
+    public int chosenOffset;
+    public Vector2 [] attackOffsets;
+    public (Vector2 coord, int dmg)[,] attackAreas;
 
-    public Attack(string name, bool enemy, (Vector2 coord, int dmg)[] attackOffsets) {
+    public Attack(string name, bool enemy, Vector2[] attackOffsets, (Vector2 coord, int dmg)[,] attackAreas, int chosenOffset = -1) {
+        this.chosenOffset = chosenOffset;
         this.attackOffsets = attackOffsets;
+        this.attackAreas = attackAreas;
         attackName = name;
         this.enemy = enemy;
     }

@@ -722,7 +722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6169bd5e1416c2a488daddc0820af136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedUIPrefab: {fileID: 612426931451904741, guid: 4611650408e8c4188b23af6e42d25b47,
+  selectedUIPrefab: {fileID: 1943844553524951539, guid: aa8b5e78cc9da4fcea859cd7ef7128af,
+    type: 3}
+  selectedUIPrefab2: {fileID: 6030661852262763951, guid: e064a525daa6e48a1bf12a7d0864f564,
     type: 3}
 --- !u!114 &2038291736 stripped
 MonoBehaviour:
