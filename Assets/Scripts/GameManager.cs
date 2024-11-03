@@ -63,7 +63,12 @@ public class GameManager : MonoBehaviour
         return player.GetComponent<Player>().getWorldCoords();
     }
 
-    
+    public Vector3 getPlayerCoords()
+    {
+        return player.GetComponent<Player>().getPos();
+    }
+
+
     public void moveCharacterOnBoard(Character character, int x, int y)
     {
         //delete reference from original tile first
@@ -112,6 +117,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Player>().move((int) moveCoord.x, (int) moveCoord.y);
     }
 
+<<<<<<< HEAD
     public int getPlayerMP() {
         return player.GetComponent<Player>().getMp();
     }
@@ -127,4 +133,28 @@ public class GameManager : MonoBehaviour
         return;
     }
 
+=======
+    public void enemiesTurn()
+    {
+        /* Now enemy gets to attack */
+        // get list of all enemies present
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Debug.Log("ENEMY ALARM");
+            MotorSkill mSkill = enemy.GetComponent<MotorSkill>();
+            AttackSkill aSkill = enemy.GetComponent<AttackSkill>();
+            
+            Vector2 currentPos = enemy.GetComponent<Enemy>().getPos();
+            Vector2 targetPos = getPlayerCoords();
+
+            // attack if you can
+            bool success = false;
+            if (aSkill != null) success = aSkill.sabotage(currentPos, targetPos);
+            // move if you can't
+            if (mSkill != null && !success) mSkill.lunge(currentPos, targetPos);
+        }
+
+    }
+>>>>>>> 74e63f4 (motor skill and attack skill made for enemy phase)
 }

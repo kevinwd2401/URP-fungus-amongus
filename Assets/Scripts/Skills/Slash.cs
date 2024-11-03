@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slash : Skill
+public class Slash : AttackSkill
 {
     // Start is called before the first frame update
 
@@ -34,7 +34,5 @@ public class Slash : Skill
 
         // attack initated by human
         attack = new Attack("Slash", false, offsets, attackAreas);
-        isAttack = false;
-        isMove = true;
     }
 }

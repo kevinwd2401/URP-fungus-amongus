@@ -20,18 +20,6 @@ public class Board : MonoBehaviour
     Character[,] characterCoords; // location refer to integer location i,j
     Dictionary<string, GameObject> name2Prefab = new Dictionary<string, GameObject>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void DamageCharacterOnBoard(bool attackIsEnemy, int dmg, int x, int y)
     {
@@ -41,6 +29,7 @@ public class Board : MonoBehaviour
         character.takeDamage(dmg);
         Debug.Log("Damaging character on Board " + dmg);
     }
+
     public void initiate()
     {
         getEnemyPrefabs();
@@ -159,15 +148,17 @@ public class Board : MonoBehaviour
 
     public void SpawnEnemy(Vector2 coords, string enemyType = "", int level = 1, int hp = -1)
     {
+        // check occupancy
+        int i = (int)coords.x;
+        int j = (int)coords.y;
+        if (characterCoords[i, j] != null) return;
 
         Enemy enemy = Instantiate(name2Prefab[enemyType]).GetComponent<Enemy>();
         enemy.Initialize(coords, enemyType, level, hp);
 
         // spawn it
-        int i = (int) coords.x;
-        int j = (int) coords.y;
         characterCoords[i, j] = enemy;
-        enemy.spawn(tilePos[i,j]);
+        enemy.spawn(tilePos[i, j]);
     }
 
     public void SpawnEnemies(int innerRadius, int outerRadius, string[] enemyTypes)
