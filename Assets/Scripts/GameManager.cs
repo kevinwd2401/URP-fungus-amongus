@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void TurnOnPlayerOpacity(bool on)
+    {
+        player.GetComponent<Player>().TurnOnInteractiveTransparency(on);
+    }
+
     public void initiate()
     {
         //// wipe board

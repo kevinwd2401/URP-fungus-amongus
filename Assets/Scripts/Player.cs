@@ -35,6 +35,11 @@ public class Player : Character
         }
     }
 
+    public void TurnOnInteractiveTransparency(bool on)
+    {
+        GetComponentInChildren<PlayerOpacity>().TurnOnInteractiveTransparency(on);
+    }
+
     void Update()
     {
 

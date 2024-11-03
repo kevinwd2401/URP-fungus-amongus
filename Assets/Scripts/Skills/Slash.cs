@@ -26,10 +26,14 @@ public class Slash : MonoBehaviour
 
         // the mouse will rotate radially around
         // if it is over the character, character will become slightly transparent.
+        GameManager.Instance.TurnOnPlayerOpacity(true);
 
 
         // once the tile is clicked, then initate attack
         //Attack(playerWorldCoords);
+
+        // turn it off after all is over
+        //GameManager.Instance.TurnOnPlayerOpacity(false);
     }
 
     public void GeneratePotentialAttackPlaces(Vector3 playerWorldCoords)
