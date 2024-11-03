@@ -280,7 +280,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 5
 --- !u!1 &2566509591453166165
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 4647425351761968264}
   - component: {fileID: 5569720720028588542}
   - component: {fileID: 63970173543233248}
+  - component: {fileID: 4511921770862466517}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -635,6 +636,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: {fileID: 2997426279169106538}
   draw_pile_text: {fileID: 1420718316538557724}
+--- !u!114 &4511921770862466517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449503619052965945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da0bdb598a2d415992811a1272842d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpNum: {fileID: 8097778200714588172}
+  mp: {fileID: 8697911268646297704}
+  mpmax: {fileID: 4202492483524493138}
+  mx3: {fileID: 21300000, guid: 9a01b0642d2304230b446691670b12c8, type: 3}
+  mx4: {fileID: 21300000, guid: 6267189929e214e3a8ea486c27043741, type: 3}
+  mx5: {fileID: 21300000, guid: 726cf04a40786448193544a6452bc37e, type: 3}
+  m1: {fileID: 21300000, guid: 4228cfeb86a5440da8717124d1e78448, type: 3}
+  m2: {fileID: 21300000, guid: 37e0be0be40554cf79132c8930f102f0, type: 3}
+  m3: {fileID: 21300000, guid: 78dc1e8d038244b6ab4f46681dc11610, type: 3}
+  m4: {fileID: 21300000, guid: a56797df4fd1e405aa81dac58d784f97, type: 3}
+  m5: {fileID: 21300000, guid: 072d5f8ed7fea47f2a7c69c40047a4e0, type: 3}
 --- !u!1 &8235115888719500665
 GameObject:
   m_ObjectHideFlags: 0
