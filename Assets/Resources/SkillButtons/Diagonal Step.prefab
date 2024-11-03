@@ -282,3 +282,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index_in_hand: 0
   buttons: {fileID: 0}
+  isAttack: 1
+  isMove: 0
