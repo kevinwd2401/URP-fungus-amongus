@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public GameObject damageSparkPrefab, deathSparkPrefab;
     public int level;
 
     public Vector2[] offsets = {
@@ -27,6 +28,23 @@ public class Enemy : Character
     void Update()
     {
         
+    }
+
+    public override void takeDamage(int dmg) {
+        hp -= dmg;
+        if (hp <= 0) {
+            die();
+        } else if (damageSparkPrefab != null) {
+            GameObject spark = Instantiate(spawnSparkPrefab, transform.position, Quaternion.identity);
+            Destroy(spark, 3);
+        }
+        
+    }
+    public override void die() {
+        //delete reference from tile
+        GameObject spark = Instantiate(deathSparkPrefab, transform.position, Quaternion.identity);
+        Destroy(spark, 3);
+        GameManager.Instance.deleteCharacterFromBoard(this);
     }
 
     public void Initialize(Vector2 coords, string enemyType = "", int level = 1, int hp = -1)
