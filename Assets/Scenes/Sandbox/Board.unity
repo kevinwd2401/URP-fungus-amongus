@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1354,6 +1354,21 @@ PrefabInstance:
       propertyPath: mpmaxImg
       value: 
       objectReference: {fileID: 170677242}
+    - target: {fileID: 4647425351761968264, guid: 24011d3455f1d4a97867544bea679cf0,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647425351761968264, guid: 24011d3455f1d4a97867544bea679cf0,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 545
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647425351761968264, guid: 24011d3455f1d4a97867544bea679cf0,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 340
+      objectReference: {fileID: 0}
     - target: {fileID: 6449503619052965945, guid: 24011d3455f1d4a97867544bea679cf0,
         type: 3}
       propertyPath: m_Name
