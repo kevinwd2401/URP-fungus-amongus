@@ -25,10 +25,12 @@ public class Deck : MonoBehaviour
 
     public void fillDeckWithStarter() {
         this.cards.Clear();
-        this.cards.Add(new Card(CardType.HorizontalStep));
-        this.cards.Add(new Card(CardType.HorizontalStep));
-        this.cards.Add(new Card(CardType.HorizontalStep));
-        this.cards.Add(new Card(CardType.DiagonalStep));
+        //this.cards.Add(new Card(CardType.HorizontalStep));
+        //this.cards.Add(new Card(CardType.HorizontalStep));
+        //this.cards.Add(new Card(CardType.HorizontalStep));
+        //this.cards.Add(new Card(CardType.DiagonalStep));
+        this.cards.Add(new Card(CardType.Slash));
+        this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.SpinSlash));
@@ -145,16 +147,6 @@ public class Deck : MonoBehaviour
         drawCard();
         drawCard();
         drawCard();
-
-
-        discardByIndex(1);
-        discardByIndex(2);
-
-        drawCard();
-
-        discardByIndex(0);
-
-        Debug.Log(hand);
 
     }
 
