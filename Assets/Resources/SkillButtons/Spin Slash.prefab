@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6639986175465301798}
   - component: {fileID: 2896030129417702808}
   - component: {fileID: 7012856684134110436}
-  - component: {fileID: 1578225642754305999}
+  - component: {fileID: 2618587183585497338}
   m_Layer: 5
   m_Name: Spin Slash
   m_TagString: Untagged
@@ -256,9 +256,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1578225642754305999}
-        m_TargetAssemblyTypeName: Character, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 2618587183585497338}
+        m_TargetAssemblyTypeName: Skill, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1578225642754305999
+--- !u!114 &2618587183585497338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8940368491240980027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe1fd63c12e948e690d2c6d97cc07e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 474c4f31e069843e3b61228f31c9d25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index_in_hand: 0

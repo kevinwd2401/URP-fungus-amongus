@@ -35,7 +35,7 @@ public class Skill : MonoBehaviour
         }
     }
 
-    void Click()
+    public void Click()
     {
         //Debug.Log("herehere"+attackAreas.GetLength(0) + " " + attackAreas.GetLength(1));
         characterWorldCoords = GameManager.Instance.getPlayerWorldCoords();
