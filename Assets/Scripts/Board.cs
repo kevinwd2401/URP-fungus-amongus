@@ -56,7 +56,7 @@ public class Board : MonoBehaviour
         enemyPrefabs = Resources.LoadAll<GameObject>("Enemy");
         foreach (GameObject prefab in enemyPrefabs)
         {
-            Debug.Log(prefab.name);
+            //Debug.Log(prefab.name);
             name2Prefab.Add(prefab.name, prefab);
         }
     }
@@ -138,7 +138,7 @@ public class Board : MonoBehaviour
             Vector2 pos = player.getPos();
             int x = (int)Mathf.Clamp(pos.x + ii, 0f, lengthBin);
             int y = (int)Mathf.Clamp(pos.y + jj, 0f, widthBin);
-            Debug.Log(x + " " + y);
+            //Debug.Log(x + " " + y);
             SpawnEnemy(new Vector2(x, y), enemyTypes[i]);
         }
     }

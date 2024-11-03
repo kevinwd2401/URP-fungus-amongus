@@ -28,7 +28,9 @@ public class Deck : MonoBehaviour
         //this.cards.Add(new Card(CardType.HorizontalStep));
         //this.cards.Add(new Card(CardType.HorizontalStep));
         //this.cards.Add(new Card(CardType.HorizontalStep));
-        //this.cards.Add(new Card(CardType.DiagonalStep));
+        this.cards.Add(new Card(CardType.DiagonalStep));
+        this.cards.Add(new Card(CardType.DiagonalStep));
+        this.cards.Add(new Card(CardType.DiagonalStep));
         this.cards.Add(new Card(CardType.Slash));
         //this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.HorizontalStep));
