@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
+
+    public Deck deck;
+
     public Button button;
     public int numberOfDuplicates = 5;  // Number of duplicates to create
     public float interval = 80f;
@@ -39,9 +42,12 @@ public class Buttons : MonoBehaviour
 
     GameObject[] buttonPrefabs;
 
+    List<GameObject> LoadedButtons;
+
     void Start()
     {
-        LoadButtonPrefabs();
+        LoadedButtons = new List<GameObject>();
+        //LoadButtonPrefabs();
     }
 
     void LoadButtonPrefabs()
@@ -49,7 +55,6 @@ public class Buttons : MonoBehaviour
         // Load all button prefabs from the "Resources/Buttons" folder
         buttonPrefabs = Resources.LoadAll<GameObject>("SkillButtons");
 
-        // Instantiate up to 20 button prefabs
         for (int i = 0; i < 5; i++)
         {
             // Instantiate the button prefab
@@ -60,4 +65,27 @@ public class Buttons : MonoBehaviour
             newButton.name = "Button_" + (i + 1); // Naming for identification
         }
     }
+
+    public void ClearButtons() {
+        foreach (GameObject b in LoadedButtons) {
+            Destroy(b);
+        }
+        LoadedButtons.Clear();
+    }
+
+    public void LoadButtonAt( string name, int i) {
+
+            GameObject newButton = Instantiate(Resources.Load<GameObject>("SkillButtons/" + name), transform);
+            
+            newButton.transform.localPosition = new Vector3(i * interval, 0, 0); // Example positioning
+            newButton.name = "Button_" + (i + 1); // Naming for identification
+
+            Skill s = newButton.GetComponent<Skill>();
+            s.index_in_hand = i;
+            s.buttons = this;
+
+            LoadedButtons.Add(newButton);
+
+    }
+
 }

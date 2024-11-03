@@ -81,7 +81,7 @@ public class Deck : MonoBehaviour
 
     public void drawCard() {
         //Check if deck empty, if yes reshuffle
-        if (cards.Count <= 0) {
+        if (draw_pile.Count <= 0) {
             //If literally no cards left, stop
             if (discard_pile.Count <= 0) {
                 return;
@@ -104,8 +104,6 @@ public class Deck : MonoBehaviour
         }
 
         updateHandDisplay();
-
-
     }
 
     public int getCurrentHandSize() {
@@ -121,14 +119,37 @@ public class Deck : MonoBehaviour
     }
 
     void updateHandDisplay() {
-        //TODO
-
+        buttons.ClearButtons();
+        for(int i = 0; i < hand.Length; ++i) {
+            if (hand[i] != null) {
+                buttons.LoadButtonAt(hand[i].name, i);
+            }    
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         fillDeckWithStarter();
+        resetDeck();
+        shuffleDrawPile();
+
+        drawCard();
+        drawCard();
+        drawCard();
+        drawCard();
+        drawCard();
+
+
+        discardByIndex(1);
+        discardByIndex(2);
+
+        drawCard();
+
+        discardByIndex(0);
+
+        Debug.Log(hand);
+
     }
 
     // Update is called once per frame
@@ -140,20 +161,18 @@ public class Deck : MonoBehaviour
 
 public class Card {
     public int cost;
-    public Skill skill;
+    //public Skill skill;
     public string name;
     public string desc;
     
-    public Card(int cost, Skill skill, string name, string desc) {
+    public Card(int cost, string name, string desc) {
         this.cost = cost;
-        this.skill = skill;
         this.name = name;
         this.desc = desc;
     }
 
     public Card(CardType t) {
         int c = 0;
-        Skill s = null;
         string n = "Default Card";
         string d = "This card does nothing.";
 
@@ -193,10 +212,10 @@ public class Card {
         }
 
         //temp, default, all cards are slash 
-        s = new Slash();
+        //s = new Slash();
         
         this.cost = c;
-        this.skill = s;
+        //this.skill = s;
         this.name = n;
         this.desc = d;
     }

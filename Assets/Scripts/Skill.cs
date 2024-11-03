@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    public int index_in_hand;
+    public Buttons buttons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class Skill : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //remove from hand
+    void removeFromHand() {
+        buttons.deck.discardByIndex(index_in_hand);
     }
 }
