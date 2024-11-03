@@ -8,6 +8,8 @@ public class Enemy : Character
     public GameObject damageSparkPrefab, deathSparkPrefab;
     public int level;
 
+    [SerializeField] int HP;
+
     public Vector2[] offsets = {
         new Vector2(1, 0),
         new Vector2(-1, 0),
@@ -22,7 +24,7 @@ public class Enemy : Character
     // Start is called before the first frame update
     void Start()
     {
-        hp = 2;
+        hp = HP;
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class Enemy : Character
         if (hp <= 0) {
             die();
         } else if (damageSparkPrefab != null) {
-            GameObject spark = Instantiate(spawnSparkPrefab, transform.position, Quaternion.identity);
+            GameObject spark = Instantiate(damageSparkPrefab, transform.position, Quaternion.identity);
             Destroy(spark, 3);
         }
         

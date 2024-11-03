@@ -139,6 +139,7 @@ MonoBehaviour:
   deathSparkPrefab: {fileID: 4709525459900906878, guid: ea1b0240164018e4d9f3b390fe357b22,
     type: 3}
   level: 0
+  HP: 1
   offsets:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
