@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 6639986175465301798}
   - component: {fileID: 2896030129417702808}
   - component: {fileID: 7012856684134110436}
-  - component: {fileID: 7894231344941707425}
   - component: {fileID: 514758295410378780}
   m_Layer: 5
   m_Name: Diagonal Step
@@ -257,8 +256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934078664377393073, guid: 482bb51725ec949119c05e38fb98bd27,
-          type: 3}
+      - m_Target: {fileID: 514758295410378780}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -270,21 +268,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7894231344941707425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940368491240980027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"index_in_hand","value":null,"typeHandle":{"Identification":null,"$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
 --- !u!114 &514758295410378780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,3 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba4afc9e912f4840a6912222d207eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index_in_hand: 0
+  buttons: {fileID: 0}
