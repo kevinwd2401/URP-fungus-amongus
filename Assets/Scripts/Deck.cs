@@ -32,11 +32,11 @@ public class Deck : MonoBehaviour
         this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.HorizontalStep));
         this.cards.Add(new Card(CardType.HorizontalStep));
-        this.cards.Add(new Card(CardType.HorizontalStep));
+        this.cards.Add(new Card(CardType.FancyStep));
         this.cards.Add(new Card(CardType.SpinSlash));
         this.cards.Add(new Card(CardType.SpinSlash));
         this.cards.Add(new Card(CardType.LunarSlash));
-        
+
     }
 
     public void resetDeck() {
@@ -199,6 +199,12 @@ public class Card {
                 n = "Diagonal Step";
                 d = "Move diagonally for 1 tile.";
                 break;
+            case CardType.FancyStep : 
+                c = 1;
+                //s = DiagonalStep();
+                n = "Fancy Step";
+                d = "Move. Fancy.";
+                break;
             case CardType.Slash : 
                 c = 1;
                 //s = Slash();
@@ -232,5 +238,5 @@ public class Card {
 }
 
 public enum CardType {
-    HorizontalStep, DiagonalStep, Slash, SpinSlash, LunarSlash
+    HorizontalStep, DiagonalStep, FancyStep, Slash, SpinSlash, LunarSlash
 }
