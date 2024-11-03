@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slash : MonoBehaviour
+public class Slash : Skill
 {
     // Start is called before the first frame update
     AttackTileDisplayer attackDisplay;
