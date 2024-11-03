@@ -29,11 +29,13 @@ public abstract class Character : MonoBehaviour
     }
 
     public void move(int xOffset, int yOffset) {
-        coords.x = coords.x + xOffset;
-        coords.y = coords.y + yOffset;
+        Vector2 newcoords = new Vector2(0.0f, 0.0f);
+        newcoords.x = coords.x + xOffset;
+        newcoords.y = coords.y + yOffset;
         //add reference to new tile
-        GameManager.Instance.moveCharacterOnBoard(this, (int) coords.x, (int) coords.y);
+        GameManager.Instance.moveCharacterOnBoard(this, (int) newcoords.x, (int) newcoords.y);
         StartCoroutine(moveCor(xOffset, yOffset));
+        coords = newcoords;
     }
     protected IEnumerator moveCor(int xOffset, int yOffset) {
         Vector3 pos = transform.position;

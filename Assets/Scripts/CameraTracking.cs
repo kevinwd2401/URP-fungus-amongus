@@ -9,8 +9,7 @@ public class CameraTracking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        offset = transform.position - player.transform.position;
-
+        
     }
 
     // Update is called once per frame
@@ -18,7 +17,9 @@ public class CameraTracking : MonoBehaviour
     {
         if (player == null) {
             player = GameManager.Instance.player;
-            offset = transform.position - player.transform.position;
+            if (player != null) {
+                offset = transform.position - player.transform.position;
+            }
         }
         if (player != null) {
             transform.position = player.transform.position + offset;

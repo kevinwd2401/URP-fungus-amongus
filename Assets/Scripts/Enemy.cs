@@ -6,6 +6,17 @@ public class Enemy : Character
 {
     public int level;
 
+    public Vector2[] offsets = {
+        new Vector2(1, 0),
+        new Vector2(-1, 0),
+        new Vector2(0, 1),
+        new Vector2(0, -1),
+        new Vector2(1, 1),
+        new Vector2(-1, 1),
+        new Vector2(-1, -1),
+        new Vector2(1, -1),
+    };
+
     // Start is called before the first frame update
     void Start()
     {
