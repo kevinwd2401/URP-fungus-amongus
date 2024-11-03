@@ -28,7 +28,7 @@ public abstract class Character : MonoBehaviour
             }
             bool attackerIsEnemy = a.enemy;
             if (!attackerIsEnemy) {
-                Vector3 pos = transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
+                Vector3 pos = new Vector3(-0.5f,0.5f,-0.5f) + transform.position + GameManager.Instance.tileLength * new Vector3(attackCoord.x, 0, attackCoord.y);
                 StartCoroutine(spawnAttackParticles(attackCoord.magnitude * 0.08f, pos));
             }
             GameManager.Instance.damageCharacterOnBoard(attackerIsEnemy, dmg, x, y);
@@ -69,6 +69,11 @@ public abstract class Character : MonoBehaviour
     }
 
     public virtual void takeDamage(int dmg) {
+
+        if (this is Props) {
+            return;
+        }
+
         GameObject popup = Instantiate(dmgPopupPrefab, transform.position + 1.2f * Vector3.up, Quaternion.identity);
         popup.GetComponent<TextMeshPro>().text = "-" + dmg;
 

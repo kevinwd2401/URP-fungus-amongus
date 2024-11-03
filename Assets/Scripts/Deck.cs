@@ -25,20 +25,18 @@ public class Deck : MonoBehaviour
 
     public void fillDeckWithStarter() {
         this.cards.Clear();
-        //this.cards.Add(new Card(CardType.HorizontalStep));
-        //this.cards.Add(new Card(CardType.HorizontalStep));
-        //this.cards.Add(new Card(CardType.HorizontalStep));
-        this.cards.Add(new Card(CardType.DiagonalStep));
+        
         this.cards.Add(new Card(CardType.DiagonalStep));
         this.cards.Add(new Card(CardType.DiagonalStep));
         this.cards.Add(new Card(CardType.Slash));
-        //this.cards.Add(new Card(CardType.Slash));
+        this.cards.Add(new Card(CardType.Slash));
         this.cards.Add(new Card(CardType.HorizontalStep));
         this.cards.Add(new Card(CardType.HorizontalStep));
         this.cards.Add(new Card(CardType.HorizontalStep));
-        //this.cards.Add(new Card(CardType.SpinSlash));
+        this.cards.Add(new Card(CardType.SpinSlash));
+        this.cards.Add(new Card(CardType.SpinSlash));
         this.cards.Add(new Card(CardType.LunarSlash));
-        this.cards.Add(new Card(CardType.LunarSlash));
+        
     }
 
     public void resetDeck() {
